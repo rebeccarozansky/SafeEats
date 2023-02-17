@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
+import Main from "./Main";
 
 
 export default function App() {
-
+  return (<Main />);
   return (
     <View style={styles.container}>
       <Text style={styles.appName}>SafeEats</Text>
