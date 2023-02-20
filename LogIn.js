@@ -1,50 +1,46 @@
 import { StatusBar } from 'expo-status-bar';
 import { Image, View, StyleSheet, TouchableOpacity, Text, TextInput } from 'react-native';
 import React, {Component} from "react";
+import { useNavigation } from '@react-navigation/native';
 
-export default class LogIn extends Component {
+export default function LogIn() {
+    const navigation = useNavigation(); 
 
-    constructor(props) {
-        super(props);
-    }
+    return (
+        <View style={styles.container}>
+            <View style={styles.fieldsContainer}>
+                <Text style={styles.titleFieldTitle}>Email address</Text>
+                <TextInput
+                    style={styles.textField}
+                    placeholder="Enter your email..."
+                />
+                <Text style={styles.titleFieldTitle}>Password</Text>
+                <TextInput
+                    style={styles.textField}
+                    placeholder="Enter your password..."
+                />
+                <TouchableOpacity
+                    style={styles.forgotPassword}
+                    onPress={() => console.log("forgot password")}
+                    underlayColor='#fff'>
+                    <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+                </TouchableOpacity>
 
-    render() {
-    
-        return (
-            <View style={styles.container}>
-                <View style={styles.fieldsContainer}>
-                    <Text style={styles.titleFieldTitle}>Email address</Text>
-                    <TextInput
-                        style={styles.textField}
-                        placeholder="Enter your email..."
-                    />
-                    <Text style={styles.titleFieldTitle}>Password</Text>
-                    <TextInput
-                        style={styles.textField}
-                        placeholder="Enter your password..."
-                    />
-                    <TouchableOpacity
-                        style={styles.forgotPassword}
-                        onPress={() => console.log("forgot password")}
-                        underlayColor='#fff'>
-                        <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
-                    </TouchableOpacity>
-
-                </View>
-                <View style={styles.logInContainer}>
-                    <TouchableOpacity
-                        style={styles.logInButton}
-                        onPress={() => console.log("log in")}
-                        underlayColor='#fff'>
-                        <Text style={styles.signInButtonText}>Log In</Text>
-                    </TouchableOpacity>
-                    
-                </View>
             </View>
-        
-        );
-    }
+            <View style={styles.logInContainer}>
+                <TouchableOpacity
+                    style={styles.logInButton}
+                    onPress={() => navigation.navigate("TabNav")}
+                    underlayColor='#fff'>
+                    <Text style={styles.signInButtonText}>Log In</Text>
+                </TouchableOpacity>
+                
+            </View>
+        </View>
+    
+    );
 }
+
 const styles = StyleSheet.create({
     container: {
       display: "flex",

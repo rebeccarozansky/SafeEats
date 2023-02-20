@@ -1,47 +1,41 @@
 import { StatusBar } from 'expo-status-bar';
 import { TextInput, Text, View, StyleSheet, Button, TouchableOpacity, Image } from 'react-native';
 import React, {Component, useState} from "react";
+import { useNavigation } from '@react-navigation/native';
 
+export default function CreateAccount() {
+    const navigation = useNavigation(); 
 
-
-export default class CreateAccount extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-    
-        return (
-            <View style={styles.container}>
-                <View style={styles.fieldsContainer}>
-                    <Text style={styles.titleFieldTitle}>Full Name</Text>
-                    <TextInput
-                        style={styles.textField}
-                        placeholder="Enter your name..."
-                    />
-                    <Text style={styles.titleFieldTitle}>Email address</Text>
-                    <TextInput
-                        style={styles.textField}
-                        placeholder="Enter your email..."
-                    />
-                    <Text style={styles.titleFieldTitle}>Password</Text>
-                    <TextInput
-                        style={styles.textField}
-                        placeholder="Create your password..."
-                    />
-                    <TouchableOpacity
-                        style={styles.signUpButton}
-                        onPress={() => console.log("sign up")}
-                        underlayColor='#fff'>
-                        <Text style={styles.signText}>Sign Up</Text>
-                    </TouchableOpacity>
-                </View>
+    return (
+        <View style={styles.container}>
+            <View style={styles.fieldsContainer}>
+                <Text style={styles.titleFieldTitle}>Full Name</Text>
+                <TextInput
+                    style={styles.textField}
+                    placeholder="Enter your name..."
+                />
+                <Text style={styles.titleFieldTitle}>Email address</Text>
+                <TextInput
+                    style={styles.textField}
+                    placeholder="Enter your email..."
+                />
+                <Text style={styles.titleFieldTitle}>Password</Text>
+                <TextInput
+                    style={styles.textField}
+                    placeholder="Create your password..."
+                />
+                <TouchableOpacity
+                    style={styles.signUpButton}
+                    onPress={() => navigation.navigate("TabNav")}
+                    underlayColor='#fff'>
+                    <Text style={styles.signText}>Sign Up</Text>
+                </TouchableOpacity>
             </View>
-        
-        );
-    }
+        </View>
+    
+    );
 }
+
 const styles = StyleSheet.create({
     container: {
       display: "flex",

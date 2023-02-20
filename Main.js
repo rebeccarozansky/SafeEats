@@ -10,7 +10,7 @@ export default function Main() {
     const [createAccountText, setCreateAccountText] = useState(styles.activeText);
     const [createAccount, setCreateAccount] = useState(styles.selectorActive);
     const [logInText, setLogInText] = useState(styles.inactiveText);
-    const [logIn, setLogIn] = useState(styles.selectorInctive);
+    const [logIn, setLogIn] = useState(styles.selectorInactive);
 
     return (
         <View style={styles.container}>

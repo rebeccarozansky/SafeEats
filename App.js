@@ -1,100 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
-import BouncyCheckbox from "react-native-bouncy-checkbox";
-import Main from "./Main";
+// import BouncyCheckbox from "react-native-bouncy-checkbox";
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
+import Main from "./Main";
+import TabNav from './TabNav';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return (<Main />);
   return (
-    <View style={styles.container}>
-      <Text style={styles.appName}>SafeEats</Text>
-      <TextInput
-        style={styles.textField}
-        placeholder="Name"
+    <NavigationContainer>
+    <Stack.Navigator 
+      screenOptions={{
+        headerShown: false
+      }}>
+      <Stack.Screen
+        name="Main"
+        component={Main}
       />
-      <TextInput
-        style={styles.textField}
-        placeholder="Email"
+      <Stack.Screen 
+        name="TabNav"
+        component={TabNav}
       />
-      <TextInput
-        style={styles.textField}
-        placeholder="Password"
-      />
-      <View style={styles.checkboxContainer}>
-        <View style={styles.checkboxColumn}>
-          <BouncyCheckbox 
-            textStyle={{textDecorationLine: "none", }} 
-            style={styles.checkboxRow}
-            text="Milk" 
-            onPress={(isChecked) => {console.log(isChecked)}} 
-          />
-
-          <BouncyCheckbox 
-            textStyle={{textDecorationLine: "none", }} 
-            style={styles.checkboxRow}
-            text="Eggs" 
-            onPress={(isChecked) => {console.log(isChecked)}} 
-          />
-          <BouncyCheckbox 
-            textStyle={{textDecorationLine: "none", }} 
-            style={styles.checkboxRow}
-            text="Fish" 
-            onPress={(isChecked) => {console.log(isChecked)}} 
-          />
-        </View>
-
-        <View style={styles.checkboxColumn}>
-          <BouncyCheckbox 
-            textStyle={{textDecorationLine: "none", }} 
-            style={styles.checkboxRow}
-            text="Shellfish" 
-            onPress={(isChecked) => {console.log(isChecked)}} 
-          />
-          <BouncyCheckbox 
-            textStyle={{textDecorationLine: "none", }} 
-            style={styles.checkboxRow}
-            text="Tree Nuts" 
-            onPress={(isChecked) => {console.log(isChecked)}} 
-          />
-          <BouncyCheckbox 
-            textStyle={{textDecorationLine: "none", }} 
-            style={styles.checkboxRow}
-            text="Peanuts" 
-            onPress={(isChecked) => {console.log(isChecked)}} 
-          />
-
-          <BouncyCheckbox 
-            textStyle={{textDecorationLine: "none", }} 
-            style={styles.checkboxRow}
-            text="Vegan" 
-            onPress={(isChecked) => {console.log(isChecked)}} 
-          />
-        </View>
-
-        <View style={styles.checkboxColumn}>
-          <BouncyCheckbox 
-            textStyle={{textDecorationLine: "none", }} 
-            style={styles.checkboxRow}
-            text="Wheat" 
-            onPress={(isChecked) => {console.log(isChecked)}} 
-          />
-          <BouncyCheckbox 
-            textStyle={{textDecorationLine: "none", }} 
-            style={styles.checkboxRow}
-            text="Soy" 
-            onPress={(isChecked) => {console.log(isChecked)}} 
-          />
-          <BouncyCheckbox 
-            textStyle={{textDecorationLine: "none", }} 
-            style={styles.checkboxRow}
-            text="Gluten Free" 
-            onPress={(isChecked) => {console.log(isChecked)}} 
-          />
-          </View>
-      </View>
-    </View>
-  );
+    </Stack.Navigator>
+    </NavigationContainer>);
 }
 
 
