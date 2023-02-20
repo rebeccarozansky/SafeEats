@@ -6,18 +6,18 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 export default function Allergies(props) {
     const allergiesList = ["Milk", "Eggs", "Fish", "Tree Nuts", "Peanuts", "Soybeans", "Wheat", "Shellfish", "Gluten Free", "Vegan", "Vegetarian", "Halal"]
     const urls = [
-        require("./img/icons/Milk.png"),
-        require("./img/icons/Eggs.png"),
-        require("./img/icons/Fish.png"),
-        require("./img/icons/TreeNuts.png"),
-        require("./img/icons/Peanuts.png"),
-        require("./img/icons/Soybeans.png"),
-        require("./img/icons/Wheat.png"),
-        require("./img/icons/Shellfish.png"),
-        require("./img/icons/GlutenFree.png"),
-        require("./img/icons/Vegan.png"),
-        require("./img/icons/Vegetarian.png"),
-        require("./img/icons/Halal.png"),
+        require("../../img/icons/Milk.png"),
+        require("../../img/icons/Eggs.png"),
+        require("../../img/icons/Fish.png"),
+        require("../../img/icons/TreeNuts.png"),
+        require("../../img/icons/Peanuts.png"),
+        require("../../img/icons/Soybeans.png"),
+        require("../../img/icons/Wheat.png"),
+        require("../../img/icons/Shellfish.png"),
+        require("../../img/icons/GlutenFree.png"),
+        require("../../img/icons/Vegan.png"),
+        require("../../img/icons/Vegetarian.png"),
+        require("../../img/icons/Halal.png"),
     ];
     var columnOne = [];
     var columnTwo = [];

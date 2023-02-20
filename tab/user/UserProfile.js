@@ -7,7 +7,6 @@ import Allergies from './Allergies';
 import { SimpleLineIcons, Feather } from '@expo/vector-icons';
 
 
-// 
 export default function UserProfile(props) {
     const navigation = useNavigation(); 
 
@@ -17,10 +16,10 @@ export default function UserProfile(props) {
     return (
     <View style={styles.container}>
         <View style={styles.upperView}>
-            <Image style={styles.pattern} source={require('./img/Pattern.png')} />
+            <Image style={styles.pattern} source={require('../../img/Pattern.png')} />
             <View style={styles.pictureArea}>
                 <Text style={styles.profileText}>Profile</Text>
-                <Image  style={styles.profilePicture} source={require('./img/profile_picture.png')} />
+                <Image  style={styles.profilePicture} source={require('../../img/profile_picture.png')} />
                 <TouchableOpacity
                     onPress={() => navigation.navigate("Main")}
                     underlayColor='#fff'

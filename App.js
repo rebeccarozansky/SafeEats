@@ -1,11 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
-// import BouncyCheckbox from "react-native-bouncy-checkbox";
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import Main from "./Main";
-import TabNav from './TabNav';
+import TabNav from './tab/TabNav';
 
 const Stack = createNativeStackNavigator();
 

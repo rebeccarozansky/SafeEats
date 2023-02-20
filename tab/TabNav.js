@@ -2,7 +2,7 @@ import { TextInput, Text, View, StyleSheet, Button, TouchableOpacity, Image } fr
 import React, {Component, useState} from "react";
 import { color } from '@rneui/themed/dist/config';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import UserProfile from './UserProfile';
+import UserProfile from './user/UserProfile';
 import HomeScreen from './HomeScreen';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
