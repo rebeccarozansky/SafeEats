@@ -35,8 +35,8 @@ export default function Allergies(props) {
                 <BouncyCheckbox 
                     textStyle={{textDecorationLine: "none", }} 
                     style={styles.checkboxRow}
-                    text={allergiesList[i]} 
-                    fillColor="#359EFF"
+                    fillColor="#F00"
+                    size={20}
                     disableBuiltInState
                     bounceEffectIn="1"
                     isChecked={allergyBool[i]}
@@ -48,8 +48,8 @@ export default function Allergies(props) {
                 <BouncyCheckbox 
                     textStyle={{textDecorationLine: "none", }} 
                     style={styles.checkboxRow}
-                    text={allergiesList[i]} 
-                    fillColor="#359EFF"
+                    size={20}
+                    fillColor="#F00"
                     isChecked={allergyBool[i]}
                     onPress={(isChecked) => {{
                                                 allergyBool[i] = isChecked;
@@ -58,6 +58,7 @@ export default function Allergies(props) {
                             }
                 />
                 }
+                <Text style={styles.label}>{allergiesList[i]}</Text>
                 <Image style={styles.icon} source={urls[i]} />
             </View>
         );
@@ -68,8 +69,8 @@ export default function Allergies(props) {
                     <BouncyCheckbox 
                         textStyle={{textDecorationLine: "none", }} 
                         style={styles.checkboxRow}
-                        text={allergiesList[allergiesList.length/2+i]} 
-                        fillColor="#359EFF"
+                        fillColor="#F00"
+                        size={20}
                         disableBuiltInState
                         bounceEffectIn="1"
                         isChecked={allergyBool[allergiesList.length/2+i]}
@@ -80,8 +81,8 @@ export default function Allergies(props) {
                     <BouncyCheckbox 
                         textStyle={{textDecorationLine: "none", }} 
                         style={styles.checkboxRow}
-                        text={allergiesList[allergiesList.length/2+i]} 
-                        fillColor="#359EFF"
+                        fillColor="#F00"
+                        size={20}
                         isChecked={allergyBool[allergiesList.length/2+i]}
                         onPress={(isChecked) => {{
                                                     allergyBool[allergiesList.length/2+i] = isChecked;
@@ -91,6 +92,7 @@ export default function Allergies(props) {
                                 }
                     />
                 }
+                <Text style={styles.label}>{allergiesList[allergiesList.length/2+i]}</Text>
                 <Image style={styles.icon} source={urls[allergiesList.length/2+i]} />
             </View>
         );
@@ -115,6 +117,7 @@ export default function Allergies(props) {
 const styles = StyleSheet.create({
     allergiesView: {
         width: "100%",
+        marginTop: 10
     }, 
     title: {
         fontSize: 16,
@@ -153,6 +156,11 @@ const styles = StyleSheet.create({
         height: 20,
         width: 20,
         resizeMode:'contain'
+    },
+    label: {
+        color: "#6F6F6F",
+        fontSize: 14,
+        marginRight: 5
     }
   });
   
