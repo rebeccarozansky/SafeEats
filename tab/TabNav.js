@@ -15,7 +15,8 @@ export default function TabNav() {
     return (
         <Tab.Navigator
         screenOptions={{
-          headerShown: false
+          headerShown: false,
+          tabBarActiveTintColor: "#F00"
         }}>
           <Tab.Screen 
             name="HomeScreen" 
@@ -23,7 +24,7 @@ export default function TabNav() {
             options={{
               tabBarLabel: 'Home',
               tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="silverware-fork-knife" size={24} color="3B3B3B33" />
+              <MaterialCommunityIcons name="silverware-fork-knife" size={24} color={color} />
               ),
             }} 
           />
@@ -33,7 +34,8 @@ export default function TabNav() {
             options={{
               tabBarLabel: 'User Profile',
               tabBarIcon: ({ color, size }) => (
-                <AntDesign name="profile" size={24} color="black" />              ),
+                <AntDesign name="profile" size={24} color={color} />              
+              ),
             }} 
           />
         </Tab.Navigator>
