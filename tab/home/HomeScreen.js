@@ -2,15 +2,18 @@ import { TextInput, Text, View, StyleSheet, ScrollView, Image, TouchableOpacity 
 import React, {Component, useState} from "react";
 import { color } from '@rneui/themed/dist/config';
 import { AntDesign } from '@expo/vector-icons';
+import Partner from "./Partner"
 
 
 export default function HomeScreen() {
-   
-
+    const img_urls = {
+      mc: require('../../img/partner/BG1.png'),
+      ch: require('../../img/partner/BG2.png')
+    };
     return (
       <View style={styles.container}>
         <View style={styles.upperView}>
-          <Image source={require('../img/Pattern.png')} />
+          <Image source={require('../../img/Pattern.png')} />
           <View style={styles.searchSection}>
             <AntDesign style={styles.searchIcon} name="search1" size={24} color="black" />
             <TextInput placeholder="Search" style={styles.searchBar} />
@@ -26,6 +29,12 @@ export default function HomeScreen() {
                   <Text style={styles.seeAllText}>See all</Text>
               </TouchableOpacity>
             </View>
+
+            <ScrollView style={styles.horizontalView} horizontal={true}>
+              <Partner style={styles.partnerView} url={img_urls.mc} title="McDonald's" address="Franklin St, Chapel Hill" />
+              <Partner style={styles.partnerView} url={img_urls.ch} title="Chipotle" address="Franklin St, Chapel Hill" />
+
+            </ScrollView>
           </ScrollView>
         </View>
       </View>
@@ -35,6 +44,9 @@ export default function HomeScreen() {
 
 
 const styles = StyleSheet.create({
+  blue: {
+    backgroundColor: "blue"
+  },
   container: {
     flex: 1,
     backgroundColor: '#F5F5F5',
@@ -48,6 +60,11 @@ const styles = StyleSheet.create({
       width: "100%",
       flex: 1,
       flexDirection: 'column',
+  },
+  horizontalView: {
+    width: "100%",
+    flexDirection: "row",
+    alignContent: "flex-start"
   },
   searchBar: {
     height: 40,

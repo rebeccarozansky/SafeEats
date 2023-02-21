@@ -3,7 +3,7 @@ import React, {Component, useState} from "react";
 import { color } from '@rneui/themed/dist/config';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import UserProfile from './user/UserProfile';
-import HomeScreen from './HomeScreen';
+import HomeScreen from './home/HomeScreen';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
