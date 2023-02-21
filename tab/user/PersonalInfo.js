@@ -2,8 +2,19 @@ import { TextInput, Text, View, StyleSheet, Button, TouchableOpacity, Image } fr
 import React, {Component, useState} from "react";
 import { color } from '@rneui/themed/dist/config';
 
+export default function PersonalInfo(props) {
+    var data = props.personalData;
+    const [name,  setName] = useState(data[0]);
+    const [email,  setEmail] = useState(data[1]);
+    const [phoneNumber,  setPhoneNumber] = useState(data[2]);
+    const [gender,  setGender] = useState(data[3]);
+    const [birthday,  setBirthday] = useState(data[4]);
+    const [address,  setAddress] = useState(data[5]);
 
-export default function PersonalInfo() {
+    var isEdittable = false;
+    if (props.iconButtonCounter % 2 == 1) {
+        isEdittable = true;
+    }
     return (
 
     <View style={styles.personalInfoView}>
@@ -18,12 +29,42 @@ export default function PersonalInfo() {
                 <Text style={styles.label}>Address</Text>
             </View>
             <View style={styles.info}>
-                <Text style={styles.label}>Jane Smith</Text>
-                <Text style={styles.label}>janesmith1@gmail.com</Text>
-                <Text style={styles.label}>+(123) 456-7890</Text>
-                <Text style={styles.label}>Female</Text>
-                <Text style={styles.label}>04/16/1997</Text>
-                <Text style={styles.label}>321 Main St, Chapel Hill, NC 27516</Text>
+                <TextInput editable={isEdittable} style={styles.label} value={ name } 
+                    onChangeText={(text) => {{
+                        setName(text);
+                        data[0] = text;
+                        props.setPersonalData(data);
+                    }}} />
+                <TextInput editable={isEdittable} style={styles.label} value={ email } 
+                    onChangeText={(text) => {{
+                        setEmail(text);
+                        data[1] = text;
+                        props.setPersonalData(data);
+                    }}} />
+                <TextInput editable={isEdittable} style={styles.label} value={ phoneNumber } 
+                    onChangeText={(text) => {{
+                        setPhoneNumber(text);
+                        data[2] = text;
+                        props.setPersonalData(data);
+                    }}} />
+                <TextInput editable={isEdittable} style={styles.label} value={ gender } 
+                    onChangeText={(text) => {{
+                        setGender(text);
+                        data[3] = text;
+                        props.setPersonalData(data);
+                    }}} />
+                <TextInput editable={isEdittable} style={styles.label} value={ birthday } 
+                    onChangeText={(text) => {{
+                        setBirthday(text);
+                        data[4] = text;
+                        props.setPersonalData(data);
+                    }}} />
+                <TextInput editable={isEdittable} style={styles.label} value={ address } 
+                    onChangeText={(text) => {{
+                        setAddress(text);
+                        data[5] = text;
+                        props.setPersonalData(data);
+                    }}} />
             </View>
         </View>
     </View>);

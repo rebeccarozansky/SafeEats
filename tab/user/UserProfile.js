@@ -3,15 +3,25 @@ import React, {Component, useState} from "react";
 import { color } from '@rneui/themed/dist/config';
 import { useNavigation } from '@react-navigation/native';
 import PersonalInfo from "./PersonalInfo";
+import defaultPersonalData from "./PersonalInfo";
 import Allergies from './Allergies';
 import { SimpleLineIcons, Feather } from '@expo/vector-icons';
 
 
 export default function UserProfile(props) {
     const navigation = useNavigation(); 
+    const defaultPersonalData = [
+        "Jane Smith",
+        "janesmith1@gmail.com",
+        "+(123) 456-7890",
+        "Female",
+        "04/16/1997",
+        "321 Main St, Chapel Hill, NC 27516"
+    ];
 
     const [iconButtonCounter,  setIconButtonCounter] = useState(0);
     const [allergyBool,  setAllergyBool] = useState(new Array(12).fill(false));
+    const [personalData,  setPersonalData] = useState(defaultPersonalData);
     
     return (
     <View style={styles.container}>
@@ -27,7 +37,7 @@ export default function UserProfile(props) {
                     <Text style={styles.logOutText}>Log Out</Text>
                 </TouchableOpacity>
             </View>
-            <PersonalInfo />
+            <PersonalInfo iconButtonCounter={iconButtonCounter} personalData={personalData} setPersonalData={setPersonalData} />
             <Allergies iconButtonCounter={iconButtonCounter} allergyBool={allergyBool} setAllergyBool={setAllergyBool} />
             {iconButtonCounter % 2 == 0 &&
                 <TouchableOpacity
