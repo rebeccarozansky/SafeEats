@@ -6,9 +6,16 @@ import UserProfile from './user/UserProfile';
 import HomeScreen from './HomeScreen';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import MenuScreen from './components/MenuScreen';
+import StackNav from './StackNav';
 
 const Tab = createBottomTabNavigator();
+
+const Stack = createNativeStackNavigator();
+
+
+
 
 export default function TabNav() {
   
@@ -18,8 +25,8 @@ export default function TabNav() {
           headerShown: false
         }}>
           <Tab.Screen 
-            name="HomeScreen" 
-            component={HomeScreen}
+            name="Home" 
+            component={StackNav}
             options={{
               tabBarLabel: 'Home',
               tabBarIcon: ({ color, size }) => (
