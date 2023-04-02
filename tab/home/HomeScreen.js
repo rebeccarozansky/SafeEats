@@ -3,6 +3,8 @@ import React, {Component, useState} from "react";
 import { color } from '@rneui/themed/dist/config';
 import { AntDesign } from '@expo/vector-icons';
 import Partner from "./Partner"
+import HomePartners from './HomePartners';
+import HomeSearch from "./HomeSearch";
 
 
 export default function HomeScreen() {
@@ -10,32 +12,33 @@ export default function HomeScreen() {
       mc: require('../../img/partner/BG1.png'),
       ch: require('../../img/partner/BG2.png')
     };
+
+
+    const [currentComponent, setCurrentComponent] = useState(0);
+
     return (
       <View style={styles.container}>
         <View style={styles.upperView}>
           <Image source={require('../../img/Pattern.png')} />
           <View style={styles.searchSection}>
             <AntDesign style={styles.searchIcon} name="search1" size={24} color="black" />
-            <TextInput placeholder="Search" style={styles.searchBar} />
-          </View>
-          <ScrollView style={styles.scrollView}>
-            <View style={styles.featuredPartnersContainer}>
-              <Text style={styles.featuredPartnersTitle}>Featured Partners</Text>
-
+            <TextInput 
+              placeholder="Search" 
+              onPressIn={() => setCurrentComponent(1)} 
+              style={styles.searchBar} 
+            />
+            
+            { currentComponent == 1 &&
               <TouchableOpacity
-              style={styles.seeAllButton}
-                  onPress={() => {
-                  }}>
-                  <Text style={styles.seeAllText}>See all</Text>
-              </TouchableOpacity>
-            </View>
+                    style={styles.cancelButton}
+                    onPress={() => setCurrentComponent(0)}
+                    underlayColor='#fff'>
+                    <Text style={styles.cancelText}>Cancel</Text>
+            </TouchableOpacity>}
+          </View>
 
-            <ScrollView style={styles.horizontalView} horizontal={true}>
-              <Partner style={styles.partnerView} url={img_urls.mc} title="McDonald's" address="Franklin St, Chapel Hill" />
-              <Partner style={styles.partnerView} url={img_urls.ch} title="Chipotle" address="Franklin St, Chapel Hill" />
-
-            </ScrollView>
-          </ScrollView>
+          {currentComponent == 0 && < HomePartners />}
+          {currentComponent == 1 && < HomeSearch />}
         </View>
       </View>
     );
@@ -67,9 +70,10 @@ const styles = StyleSheet.create({
     alignContent: "flex-start"
   },
   searchBar: {
-    height: 40,
+    height: 50,
     marginTop: -30,
-    marginLeft: "12.5%"
+    marginLeft: "12.5%",
+    width: '65%'
   },
   searchSection: {
     borderColor: "#F00",
@@ -77,7 +81,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginLeft: "5%",
     justifyContent: "center",
-    width: "70%"
+    width: "90%"
   }, 
   searchIcon: {
     marginTop: 10,
@@ -98,6 +102,15 @@ const styles = StyleSheet.create({
     color: "#F00",
     textDecorationLine: 'underline',
 
+  },
+
+  cancelButton: {
+    marginTop: -35,
+    paddingBottom: 17.5
+  },
+  cancelText: {
+    color: "#FF0000",
+    marginLeft: "80%",
   }
   
   });
