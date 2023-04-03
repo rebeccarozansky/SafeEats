@@ -4,6 +4,7 @@ import { color } from '@rneui/themed/dist/config';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import UserProfile from './user/UserProfile';
 import HomeScreen from './home/HomeScreen';
+import SearchScreen from './search/SearchScreen';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -25,6 +26,16 @@ export default function TabNav() {
               tabBarLabel: 'Home',
               tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="silverware-fork-knife" size={24} color={color} />
+              ),
+            }} 
+          />
+
+          <Tab.Screen 
+            name="SearchScreen" 
+            component={SearchScreen}
+            options={{
+              tabBarLabel: 'Search',
+              tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="store-search" size={24} color={color} />
               ),
             }} 
           />
