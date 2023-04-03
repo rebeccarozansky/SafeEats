@@ -1,5 +1,5 @@
 {
-    "Top Of The Hill Restaurant & Brewery":[
+    "Top Of The Hill Restaurant & Brewery":
     {
         "PORTHOLE ROLLS":[{
             "Description":"Pull-apart soft yeast rolls baked with an herbed parmesan crust",
@@ -162,8 +162,8 @@
         }
         ]
     }
-    ],
-    "Sup Dogs": [
+    ,
+    "Sup Dogs": 
     {
         "Cheesy Tots":[{
             "Description":"Our famous Sup tots covered in shredded cheese and melted all over.",
@@ -275,8 +275,8 @@
         }
         ]
     }
-    ],
-    "McDonald's":[
+    ,
+    "McDonald's":
     {
         "Bacon, Egg & Cheese Biscuit":[{
             "Description":"The McDonald's Bacon, Egg & Cheese Biscuit breakfast sandwich features a warm, buttermilk biscuit brushed with real butter, thick cut Applewood smoked bacon, a fluffy folded egg, and a slice of melty American cheese.",
@@ -357,5 +357,5 @@
         }
         ]
     }
-    ]
+    
 }
