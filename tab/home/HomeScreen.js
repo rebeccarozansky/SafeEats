@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     height: 50,
-    marginTop: -30,
+    marginTop: -35,
     marginLeft: "12.5%",
     width: '65%'
   },
@@ -81,7 +81,8 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginLeft: "5%",
     justifyContent: "center",
-    width: "90%"
+    width: "90%",
+    flexDirection: "column"
   }, 
   searchIcon: {
     marginTop: 10,
