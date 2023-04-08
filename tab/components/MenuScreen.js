@@ -5,11 +5,17 @@ import { ScrollView } from 'react-native';
 import MenuItem from './MenuItem';
 import foodres from "./foodres.json";
 
+// Filters out items based on allergies given by user.
+// Vegetarian and Vegan must be handled differently.
+// TODO: potentially add list of meats and dairy items to seperate json file and call from there
+
 function safefilter(item) {
   meatlist = ["chicken","beef","pork","fish","tuna","yellowtail","salmon","pepperoni","bacon"]
+  
+  // TODO: user will eventually be replaced by firebase function to call for user's allergies
+
   user = "user"
   restrictions = foodres[user]["food restriction"]
-  console.log(restrictions.includes("vegetarian"))
   if(restrictions.includes("vegetarian")){
     console.log("here!")
     for(let i=0;i<meatlist.length;i++){
@@ -24,7 +30,6 @@ function safefilter(item) {
   for(let i=0;i<restrictions.length;i++){
     res = restrictions[i];
     if(res == "vegetarian" && (item[0]["Description"].includes(res))){
-      //console.log(item)
 
       return true;
     }
@@ -33,7 +38,6 @@ function safefilter(item) {
     }
   }
   return true;
-  // your implementation of safefilter function
 }
 
 export default function MenuScreen({route}) {
@@ -49,13 +53,9 @@ export default function MenuScreen({route}) {
 
     if(menus.hasOwnProperty(parn)){
       menu = menus[parn]
-      //console.log("here!")
-      //console.log(menu)
-      menukeys = menu.keys
-      
+      menukeys = menu.keys    
     }
-
-
+    //If item is safe, added to safefoods object
       for (let item in menu) {
         if (safefilter(menu[item])) {
           safefoods[item] = menu[item];
@@ -65,56 +65,31 @@ export default function MenuScreen({route}) {
     
   }
 
-
-  
-  //const { name } = route.params;
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Menu</Text>
-      <Text style={styles.text}>This is the menu screen.{parn}</Text>
-      <Text style={styles.text}>You can add your menu items and descriptions here.</Text>
-      
-      {/* menu.map((i) => (
-        console.log("a")
-        //<Text style = {styles.text}>{Object.keys(i)i} </Text>
-        //<MenuItem name={Object.keys(i)} desc={i.}/>
-        
-        
-        //console.log(menu.key)
-        
-      )) */}
-      {/*
-Object.keys(menu).map(item => {
- // console.log(`${item}:`);
-  menu[item].map(({ Description, Price }) => {
-    //console.log(`- ${Description} (${Price})`)
-    <Text> {Description} </Text>
-   // <MenuItem name={item} description={Description} price = {Price}/>
-  });
-  //<Text> {item} </Text>
-})
+      <Text style={styles.title}>{parn}</Text>
 
-*/}
+    <Text> Safe Items</Text>
+ {/*Displays the Safe Items*/}
+
+  <ScrollView horizontal={true}>
+      {Object.keys(safefoods).map(item => {
+        return safefoods[item].map(({ Description, Price }) => {
+          return <MenuItem name={item} description={Description} price = {Price}/>
+        });
+      })
+      }
+  </ScrollView>
+
+ {/*Displays every item*/}
   <ScrollView>
-
-{Object.keys(safefoods).map(item => {
-  return safefoods[item].map(({ Description, Price }) => {
-    return <MenuItem name={item} description={Description} price = {Price}/>
-  });
-})
-}
-</ScrollView>
-
-  <ScrollView>
-
-{Object.keys(menu).map(item => {
-  return menu[item].map(({ Description, Price }) => {
-    return <MenuItem name={item} description={Description} price = {Price}/>
-  });
-})
-}
-</ScrollView>
-      <MenuItem/>
+      {Object.keys(menu).map(item => {
+        return menu[item].map(({ Description, Price }) => {
+          return <MenuItem name={item} description={Description} price = {Price}/>
+        });
+      })
+      }
+    </ScrollView>
     </View>
   );
 };

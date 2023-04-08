@@ -32,6 +32,8 @@ const styles = StyleSheet.create({
   dropdown: {
     backgroundColor: '#fff',
     padding: 10,
+    marginVertical: 5,
+    marginHorizontal: 10,
   },
 });
 
