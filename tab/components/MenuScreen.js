@@ -1,35 +1,29 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import menus from "./chmenus.json"
 import { ScrollView } from 'react-native';
 import MenuItem from './MenuItem';
-import foodres from "./foodres.json";
+import { getUserInfo } from '../../config/getUserInfo';
 
 // Filters out items based on allergies given by user.
 // Vegetarian and Vegan must be handled differently.
 // TODO: potentially add list of meats and dairy items to seperate json file and call from there
 
-function safefilter(item) {
-  meatlist = ["chicken","beef","pork","fish","tuna","yellowtail","salmon","pepperoni","bacon"]
-  
-  // TODO: user will eventually be replaced by firebase function to call for user's allergies
+function safefilter(restrictions,item) {
+  let meatlist = ["chicken","beef","pork","fish","tuna","yellowtail","salmon","pepperoni","bacon"]
 
-  user = "user"
-  restrictions = foodres[user]["food restriction"]
-  if(restrictions.includes("vegetarian")){
-    console.log("here!")
+  if(restrictions.includes("Vegetarian")){
     for(let i=0;i<meatlist.length;i++){
-      meat = meatlist[i];
-      console.log(item[0]["Description"])
-      console.log(meat)
+      let meat = meatlist[i];
+
       if(item[0]["Description"].includes(meat)){
         return false
       }
     }
   }
   for(let i=0;i<restrictions.length;i++){
-    res = restrictions[i];
-    if(res == "vegetarian" && (item[0]["Description"].includes(res))){
+    let res = restrictions[i];
+    if(res == "Vegetarian" && (item[0]["Description"].includes(res))){
 
       return true;
     }
@@ -41,23 +35,35 @@ function safefilter(item) {
 }
 
 export default function MenuScreen({route}) {
+
+  const [restrictions,setRestrictions] = useState([]);
+
+const getRestrictions = async() => {
+  let temp = await getUserInfo();
+  setRestrictions(temp);
+}
+
+useEffect(() => {
+  getRestrictions();
+}, []);
+
+
   var parn = ""
-  var c = 0
   menu = []
   const safefoods = {};
 
   if(typeof route.params !== 'undefined'){
-    par = route.params
+    let par = route.params
     parn = par.name
-    oof = "Top Of The Hill Restaurant & Brewery"
+    let oof = "Top Of The Hill Restaurant & Brewery"
 
     if(menus.hasOwnProperty(parn)){
       menu = menus[parn]
-      menukeys = menu.keys    
+      let menukeys = menu.keys    
     }
     //If item is safe, added to safefoods object
       for (let item in menu) {
-        if (safefilter(menu[item])) {
+        if (safefilter(restrictions,menu[item])) {
           safefoods[item] = menu[item];
           
         }

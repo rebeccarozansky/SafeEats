@@ -2,9 +2,36 @@ import { StatusBar } from 'expo-status-bar';
 import { TextInput, Text, View, StyleSheet, Button, TouchableOpacity, Image } from 'react-native';
 import React, {Component, useState} from "react";
 import { useNavigation } from '@react-navigation/native';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth,db} from './config/firebase';
+import {ref, set} from 'firebase/database'
 
 export default function CreateAccount() {
     const navigation = useNavigation(); 
+    const [fullName, setFullName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const createAccount = () => {
+        createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            const userId = user.uid;
+            set(ref(db, 'users/' + userId), {
+                username: fullName,
+                email: email,
+                foodres: "0"
+              });
+
+            console.log(auth.currentUser.uid)
+        navigation.navigate("TabNav");
+        })
+        .catch((error) => {
+            setError(error.message);
+        });
+          
+        navigation.navigate("TabNav")
+    }
 
     return (
         <View style={styles.container}>
@@ -13,20 +40,26 @@ export default function CreateAccount() {
                 <TextInput
                     style={styles.textField}
                     placeholder="Enter your name..."
+                    onChangeText={setFullName}
                 />
                 <Text style={styles.titleFieldTitle}>Email address</Text>
                 <TextInput
                     style={styles.textField}
                     placeholder="Enter your email..."
+                    value={email}
+                    onChangeText={setEmail}
                 />
                 <Text style={styles.titleFieldTitle}>Password</Text>
                 <TextInput
                     style={styles.textField}
                     placeholder="Create your password..."
+                    secureTextEntry
+                    value={password}
+                    onChangeText={setPassword}
                 />
                 <TouchableOpacity
                     style={styles.signUpButton}
-                    onPress={() => navigation.navigate("TabNav")}
+                    onPress={createAccount}
                     underlayColor='#fff'>
                     <Text style={styles.signText}>Sign Up</Text>
                 </TouchableOpacity>
