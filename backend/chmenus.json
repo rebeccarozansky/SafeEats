@@ -419,6 +419,81 @@
             "Description":"A boneless breast of chicken seasoned to perfection, hand-breaded, pressure cooked in 100% refined peanut oil.",
             "Price": 4.60
         } 
+        ],
+        "Grilled Market Salad w/ Grilled Filet":[{
+            "Description":"Sliced grilled chicken breast served on a fresh bed of mixed greens, topped with crumbled blue cheese and a mix of red and green apples, strawberries and blueberries. Prepared fresh daily. Served with Harvest Nut Granola and Roasted Almonds. Pairs well with Zesty Apple Cider Vinaigrette.",
+            "Price": 9.69
+        } 
+        ],
+        "Spicy Southwest Salad":[{
+            "Description":"Slices of grilled spicy chicken breast (cold) served on a fresh bed of mixed greens, topped with grape tomatoes, a blend of Monterey Jack and Cheddar cheeses, and a zesty combination of roasted corn, black beans, poblano chiles, and red bell peppers. Made fresh daily. Served with Seasoned Tortilla Strips and Chili Lime Pepitas. Pairs well with Creamy Salsa dressing.",
+            "Price": 9.69
+        } 
+        ],
+        "Cobb Salad w/ Nuggets":[{
+            "Description":"Chick-fil-A® Nuggets, freshly breaded and pressure-cooked, sliced and served hot on a fresh bed of mixed greens, topped with roasted corn kernels, a blend of shredded Monterey Jack and Cheddar cheeses, crumbled bacon, sliced hard-boiled egg and grape tomatoes. Prepared fresh daily. Served with Charred Tomato and Crispy Red Bell Peppers. Pairs well with Avocado Lime Ranch dressing.",
+            "Price": 9.49
+        } 
+        ],
+        "Chick-fil-A Waffle Potato Fries":[{
+            "Description":"Waffle-cut potatoes cooked in canola oil until crispy outside and tender inside. Sprinkled with Sea Salt.",
+            "Price": 2.35
+        } 
+        ],
+        "Fruit Cup":[{
+            "Description":"A nutritious fruit mix made with chopped pieces of red and green apples, mandarin orange segments, fresh strawberry slices, and blueberries, served chilled. Prepared fresh daily.",
+            "Price": 3.99
+        } 
+        ],
+        "Side Salad":[{
+            "Description":"A fresh bed of mixed greens, topped with a blend of shredded Monterey Jack and Cheddar cheeses and grape tomatoes. Prepared fresh daily. Served with charred tomato, crispy red bell peppers and choice of dressing.",
+            "Price": 3.99
+        } 
+        ],
+        "Mac & Cheese":[{
+            "Description":"A classic macaroni and cheese recipe featuring a special blend of cheeses including Parmesan, Cheddar, and Romano. Baked in-restaurant to form a crispy top layer of baked cheese.",
+            "Price": 3.99
+        } 
+        ],
+        "Chicken Noodle Soup":[{
+            "Description":"Shredded Chick-fil-A® chicken breast, chopped carrots and celery with egg noodles in a hearty broth. Served with Saltine crackers.",
+            "Price": 3.85
+        } 
+        ],
+        "Kale Crunch Side":[{
+            "Description":"A blend of Curly Kale and Green Cabbage tossed with an Apple Cider and Dijon Mustard vinaigrette, all topped off with salted, crunchy Roasted Almonds",
+            "Price": 3.99
+        } 
+        ],
+        "Greek Yogurt Parfait w/ Granola":[{
+            "Description":"Creamy, organic vanilla bean Greek yogurt with fresh berries and choice of toppings.",
+            "Price": 4.75
+        } 
+        ],
+        "Waffle Potato Chips":[{
+            "Description":"Kettle-cooked waffle cut potato chips Sprinkled with Sea Salt.",
+            "Price": 2.09
+        } 
+        ],
+        "Buddy Fruits Apple Sauce":[{
+            "Description":"Buddy Fruits® brand applesauce is a 100% all natural combination of fresh apples, apple juice and cinnamon, blended smooth and served in a fun, squeezable 3.2 oz. child-size pouch.",
+            "Price": 2.29
+        } 
+        ],
+        "Frosted Lemonade":[{
+            "Description":"This refreshing treat is a hand-spun combination of Chick-fil-A® Lemonade (or Diet Lemonade) and our signature Icedream® dessert.",
+            "Price": 4.35
+        } 
+        ],
+        "Frosted Coffee":[{
+            "Description":"A hand-spun treat that combines a custom blend of cold-brewed coffee with our signature Icedream® dessert.",
+            "Price": 4.35
+        } 
+        ],
+        "Chocolate Chunk Cookie":[{
+            "Description":"Baked each day in our Restaurants, these cookies have both semi-sweet dark and milk chocolate chunks, along with wholesome oats for an old-fashioned touch.",
+            "Price": 1.65
+        } 
         ]
     }
     ]
