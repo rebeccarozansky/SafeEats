@@ -27,6 +27,9 @@ export default function Allergies(props) {
         var allergyBool = new Array(12).fill(false);
     }
 
+    
+
+
     for (let i = 0; i < allergiesList.length/2; i++) {
 
         columnOne.push(

@@ -1,11 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
 import { Image, View, StyleSheet, TouchableOpacity, Text, TextInput } from 'react-native';
-import React, {Component} from "react";
+import React, {Component,useState} from "react";
 import { useNavigation } from '@react-navigation/native';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth,db } from './config/firebase';
 
 export default function LogIn() {
     const navigation = useNavigation(); 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
+      const login = () => {
+        signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        navigation.navigate("TabNav")
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        // ..
+      });
+    }
     return (
         <View style={styles.container}>
             <View style={styles.fieldsContainer}>
@@ -13,11 +33,16 @@ export default function LogIn() {
                 <TextInput
                     style={styles.textField}
                     placeholder="Enter your email..."
+                    value={email}
+                    onChangeText={setEmail}
                 />
                 <Text style={styles.titleFieldTitle}>Password</Text>
                 <TextInput
                     style={styles.textField}
                     placeholder="Enter your password..."
+                    secureTextEntry
+                    value={password}
+                    onChangeText={setPassword}
                 />
                 <TouchableOpacity
                     style={styles.forgotPassword}
@@ -30,7 +55,7 @@ export default function LogIn() {
             <View style={styles.logInContainer}>
                 <TouchableOpacity
                     style={styles.logInButton}
-                    onPress={() => navigation.navigate("TabNav")}
+                    onPress={login}
                     underlayColor='#fff'>
                     <Text style={styles.signInButtonText}>Log In</Text>
                 </TouchableOpacity>

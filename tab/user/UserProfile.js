@@ -1,28 +1,88 @@
 import { TextInput, Text, View, StyleSheet, Button, TouchableOpacity, Image } from 'react-native';
-import React, {Component, useState} from "react";
+import React, {Component, useState,useEffect} from "react";
 import { color } from '@rneui/themed/dist/config';
 import { useNavigation } from '@react-navigation/native';
 import PersonalInfo from "./PersonalInfo";
 import defaultPersonalData from "./PersonalInfo";
 import Allergies from './Allergies';
 import { SimpleLineIcons, Feather } from '@expo/vector-icons';
-
+import {ref, get, update } from "firebase/database";
+import { db } from '../../config/firebase';
+import { auth } from '../../config/firebase';
+import { numToBool,boolToNum } from '../../config/converts';
 
 export default function UserProfile(props) {
-    const navigation = useNavigation(); 
-    const defaultPersonalData = [
-        "Jane Smith",
-        "janesmith1@gmail.com",
-        "+(123) 456-7890",
-        "Female",
-        "04/16/1997",
-        "321 Main St, Chapel Hill, NC 27516"
-    ];
 
+
+    const navigation = useNavigation(); 
+
+    // Replace 'userId' with the actual user ID
+    const userId = auth.currentUser.uid;
+
+    // Get a reference to the user's data in the database
+    const userRef = ref(db, `users/${userId}`);
+    let username = "";
+
+   // const [defaultPersonalData, setDefaultPersonalData] = useState([]);
+    const [personalData,  setPersonalData] = useState([]);
     const [iconButtonCounter,  setIconButtonCounter] = useState(0);
     const [allergyBool,  setAllergyBool] = useState(new Array(12).fill(false));
-    const [personalData,  setPersonalData] = useState(defaultPersonalData);
     
+    
+
+let d = [];
+
+
+const getUserInfo = async () => {
+    try{
+    const userId = auth.currentUser.uid;
+    const userRef = ref(db, 'users/' + userId);
+    const snapshot = await get(userRef);
+    if (snapshot.exists()) {
+        const userData = snapshot.val();
+        const username = userData.username;
+        const foodres = parseInt(userData.foodres,10);
+        setAllergyBool(numToBool(foodres));
+        const email = userData.email;
+        const personalData = [
+          username,
+          email,
+          "+(123) 456-7890",
+          "Female",
+          "04/16/1997",
+          "321 Main St, Chapel Hill, NC 27516"
+        ];
+        setPersonalData(personalData);
+      } else {
+        console.log("User data doesn't exist in the database");
+      }
+    }catch(error){
+        console.log(error)
+    }
+
+};
+  useState(() => {
+    getUserInfo();
+    
+  }, []);
+
+    if (defaultPersonalData.length == 0) {
+        return <Text>Loading...</Text>;
+      }
+
+    const updateInfo = () => {
+        setIconButtonCounter(iconButtonCounter+1);
+        let num = boolToNum(allergyBool)
+        if(num!=0){
+            const userId = auth.currentUser.uid;
+            const userRef = ref(db, 'users/' + userId);
+            let updates = {}
+            updates['/users/' + userId + '/foodres'] = num.toString();
+
+            update(ref(db), updates);
+        }
+    }
+
     return (
     <View style={styles.container}>
         <View style={styles.upperView}>
@@ -49,7 +109,7 @@ export default function UserProfile(props) {
             }
             {iconButtonCounter % 2 == 1 &&
                <TouchableOpacity
-                   onPress={() => setIconButtonCounter(iconButtonCounter + 1)}
+                   onPress={ updateInfo/*() => setIconButtonCounter(iconButtonCounter + 1)*/}
                    underlayColor='#fff'
                    style={styles.editButton}>
                     <Feather name="check" size={30} color="#FFF" />

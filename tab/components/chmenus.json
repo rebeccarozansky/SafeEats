@@ -356,6 +356,11 @@
             "Price": 2.99
         }
         ]
+    },
+    "Bojangles":{
+        "GOAT CHEESE SALAD":[{
+            "Description":"fresh greens tossed in house-made raspberry vinaigrette, garnished with pecans, golden raisins & local goat cheese (vegetarian)",
+            "Price": 10.50 
+        }]
     }
-    
 }
