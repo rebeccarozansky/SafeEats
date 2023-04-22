@@ -7,9 +7,8 @@ export default function PersonalInfo(props) {
     const [name,  setName] = useState(data[0]);
     const [email,  setEmail] = useState(data[1]);
     const [phoneNumber,  setPhoneNumber] = useState(data[2]);
-    const [gender,  setGender] = useState(data[3]);
-    const [birthday,  setBirthday] = useState(data[4]);
-    const [address,  setAddress] = useState(data[5]);
+    const [address,  setAddress] = useState(data[3]);
+    
 
     var isEdittable = false;
     if (props.iconButtonCounter % 2 == 1) {
@@ -19,13 +18,11 @@ export default function PersonalInfo(props) {
 
     <View style={styles.personalInfoView}>
         <Text style={styles.title}>Personal Information</Text>
-        <View style={styles.personalInfoData}>
+        <View style={isEdittable ? styles.personalInfoDataEditting: styles.personalInfoData}>
             <View>
                 <Text style={styles.label}>Name</Text>
                 <Text style={styles.label}>Email</Text>
                 <Text style={styles.label}>Phone Number</Text>
-                <Text style={styles.label}>Gender</Text>
-                <Text style={styles.label}>Birthday</Text>
                 <Text style={styles.label}>Address</Text>
             </View>
             <View style={styles.info}>
@@ -47,18 +44,6 @@ export default function PersonalInfo(props) {
                         data[2] = text;
                         props.setPersonalData(data);
                     }}} />
-                <TextInput editable={isEdittable} style={styles.label} value={ gender } 
-                    onChangeText={(text) => {{
-                        setGender(text);
-                        data[3] = text;
-                        props.setPersonalData(data);
-                    }}} />
-                <TextInput editable={isEdittable} style={styles.label} value={ birthday } 
-                    onChangeText={(text) => {{
-                        setBirthday(text);
-                        data[4] = text;
-                        props.setPersonalData(data);
-                    }}} />
                 <TextInput editable={isEdittable} style={styles.label} value={ address } 
                     onChangeText={(text) => {{
                         setAddress(text);
@@ -74,7 +59,7 @@ export default function PersonalInfo(props) {
 
 const styles = StyleSheet.create({
     personalInfoView: {
-        width: "100%",
+        width: "100%"
     }, 
     personalInfoData: {
         marginTop: 5,
@@ -83,6 +68,17 @@ const styles = StyleSheet.create({
         flexDirection: "row",
 
         borderColor: "#3B3B3B33",
+        borderWidth: 2,
+        borderRadius: 10,
+    },
+    personalInfoDataEditting: {
+        marginTop: 5,
+        marginLeft: "5%",
+        width: "90%",
+        flexDirection: "row",
+
+        borderColor: "#3B3B3B33",
+        backgroundColor: "#3B3B3B33",
         borderWidth: 2,
         borderRadius: 10,
     },

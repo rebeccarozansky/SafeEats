@@ -4,7 +4,7 @@ import { color } from '@rneui/themed/dist/config';
 import { AntDesign } from '@expo/vector-icons';
 import Partner from "./Partner"
 
-export default function HomePartners() {
+export default function HomePartners(props) {
     function toString() {
         return 'yes';
     }
@@ -12,7 +12,7 @@ export default function HomePartners() {
       mc: require('../../img/partner/BG1.png'),
       ch: require('../../img/partner/BG2.png')
     };
-
+    
     return (<ScrollView style={styles.scrollView}>
             <View style={styles.featuredPartnersContainer}>
               <Text style={styles.featuredPartnersTitle}>Featured Partners</Text>
@@ -26,8 +26,9 @@ export default function HomePartners() {
             </View>
 
             <ScrollView style={styles.horizontalView} horizontal={true}>
-              <Partner style={styles.partnerView} url={img_urls.mc} title="McDonald's" address="Franklin St, Chapel Hill" />
-              <Partner style={styles.partnerView} url={img_urls.ch} title="Chipotle" address="Franklin St, Chapel Hill" />
+
+              <Partner style={styles.partnerView} url={img_urls.mc} title="McDonald's" address="Franklin St, Chapel Hill" navigation={props.navigation} />
+              <Partner style={styles.partnerView} url={img_urls.ch} title="Chipotle" address="Franklin St, Chapel Hill" navigation={props.navigation} />
 
             </ScrollView>
           </ScrollView>);

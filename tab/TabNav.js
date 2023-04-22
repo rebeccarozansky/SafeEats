@@ -7,6 +7,7 @@ import HomeScreen from './home/HomeScreen';
 import SearchScreen from './search/SearchScreen';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import HomeScreenNavigator from './home/HomeScreenNavigator';
 
 
 const Tab = createBottomTabNavigator();
@@ -14,14 +15,15 @@ const Tab = createBottomTabNavigator();
 export default function TabNav() {
   
     return (
+
         <Tab.Navigator
         screenOptions={{
           headerShown: false,
           tabBarActiveTintColor: "#F00"
         }}>
           <Tab.Screen 
-            name="HomeScreen" 
-            component={HomeScreen}
+            name="HomeScreenNavigator" 
+            component={HomeScreenNavigator}
             options={{
               tabBarLabel: 'Home',
               tabBarIcon: ({ color, size }) => (

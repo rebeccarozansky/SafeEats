@@ -7,7 +7,7 @@ import HomePartners from './HomePartners';
 import HomeSearch from "./HomeSearch";
 
 
-export default function HomeScreen() {
+export default function HomeScreen(props) {
     const img_urls = {
       mc: require('../../img/partner/BG1.png'),
       ch: require('../../img/partner/BG2.png')
@@ -37,7 +37,7 @@ export default function HomeScreen() {
             </TouchableOpacity>}
           </View>
 
-          {currentComponent == 0 && < HomePartners />}
+          {currentComponent == 0 && < HomePartners navigation={props.navigation} />}
           {currentComponent == 1 && < HomeSearch />}
         </View>
       </View>

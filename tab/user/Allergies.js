@@ -22,6 +22,11 @@ export default function Allergies(props) {
     var columnOne = [];
     var columnTwo = [];
 
+    var isEdittable = false;
+    if (props.iconButtonCounter % 2 == 1) {
+        isEdittable = true;
+    }
+
     var allergyBool = props.allergyBool;
     if (allergyBool === undefined) {
         var allergyBool = new Array(12).fill(false);
@@ -101,7 +106,7 @@ export default function Allergies(props) {
     return (
     <View style={styles.allergiesView}>
         <Text style={styles.title}>My Allergies</Text>
-        <View style={styles.allergiesData}>
+        <View style={isEdittable ? styles.allergiesDataEditting: styles.allergiesData}>
             <View style={styles.checkboxColumn}>
                 {columnOne}
             </View>
@@ -140,6 +145,17 @@ const styles = StyleSheet.create({
         flexDirection: "row",
 
         borderColor: "#3B3B3B33",
+        borderWidth: 2,
+        borderRadius: 10,
+    },
+    allergiesDataEditting: {
+        marginTop: 5,
+        marginLeft: "5%",
+        width: "90%",
+        flexDirection: "row",
+
+        borderColor: "#3B3B3B33",
+        backgroundColor: "#3B3B3B33",
         borderWidth: 2,
         borderRadius: 10,
     },

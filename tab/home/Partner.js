@@ -1,14 +1,24 @@
-import { TextInput, Text, View, StyleSheet, Image } from 'react-native';
+import { TextInput, Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import React, {Component, useState} from "react";
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import RestaurantScreen from '../restaurant/RestaurantScreen';
+
+const Stack = createNativeStackNavigator();
 
 
-export default function HomeScreen(props) {
-
+export default function Partner(props) {
+  
     return (
       <View style={styles.container}>
-        <Image style={styles.img} source={props.url} />
-        <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.address}>{props.address}</Text>
+        <TouchableOpacity onPress={()=>{props.navigation.navigate("Restaurant", {url: props.url,
+                                                                                 title: props.title,
+                                                                                 address: props.address,
+                                                                                 price:"$",
+                                                                                 cuisine:"American" })}}>
+          <Image style={styles.img} source={props.url} />
+          <Text style={styles.title}>{props.title}</Text>
+          <Text style={styles.address}>{props.address}</Text>
+        </TouchableOpacity>
       </View>
     );
 }

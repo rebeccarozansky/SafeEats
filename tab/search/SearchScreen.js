@@ -1,25 +1,34 @@
-import { TextInput, Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import { TextInput, Text, View, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-
+import TopRestaurantsComponent from './TopRestaurantsComponent';
+import FilterComponent from './FilterComponent';
+import React, {Component, useState} from "react";
 
 export default function SearchScreen() {
+    const [currentComponent, setCurrentComponent] = useState(0);
+
     return (
         <View style={styles.container}>
+            <Text style={styles.searchText}>Search</Text>
             <View style={styles.upperView}>
                 <Image source={require('../../img/Pattern.png')} />
                 <View style={styles.columns}>
                     <View style={styles.searchSection}>
                         <AntDesign style={styles.searchIcon} name="search1" size={24} color="black" />
                         <TextInput 
-                        placeholder="Search" 
-                        style={styles.searchBar} 
+                            placeholder="Search" 
+                            style={styles.searchBar} 
                         />
                     </View>
-                    <TouchableOpacity style={styles.filterButton}>
+                    <TouchableOpacity style={styles.filterButton} onPress={() => {
+                        setCurrentComponent((currentComponent + 1) % 2);
+                    }}>
                         <AntDesign style={styles.filterIcon} name="filter" size={24} color="black" />
                     </TouchableOpacity>
                 </View>
             </View>
+            { currentComponent == 0 && <TopRestaurantsComponent /> }
+            { currentComponent == 1 && <TopRestaurantsComponent /> }
         </View>
     );
 }
@@ -70,5 +79,31 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 20,
         marginTop: 15
+    },
+    ScrollView: {
+        flexDirection: "column",
+        width: '100%',
+
+    }, 
+    rowView: {
+        flexDirection: "row",
+        width: '100%',
+        height: 300,
+        marginTop: -50,
+    },
+    searchText: {
+        position: 'absolute',
+        top: 50,
+        left: 20,
+        fontSize: 36
+    },
+    lowerView: {
+        width: '100%',
+        height: '80%'
+    },
+    topRestText: {
+        marginLeft: 22.5,
+        marginTop: 10,
+        fontSize: 24
     }
 });
