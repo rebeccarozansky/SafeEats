@@ -24,7 +24,7 @@ export default function Partner(props) {
           });
         }}
       >
-        <Image style={styles.img} source={props.url} />
+        <Image style={[styles.img, {height: 200, width: 200}]} source={props.url} />
         <Text style={styles.title}>{props.title}</Text>
         <Text style={styles.address}>{props.address}</Text>
       </TouchableOpacity>
@@ -41,8 +41,6 @@ const styles = StyleSheet.create({
     paddingRight: 10,
   },
   img: {
-    height: 200,
-    maxWidth: 400,
     borderRadius: 15,
     resizeMethod: "scale",
   },
