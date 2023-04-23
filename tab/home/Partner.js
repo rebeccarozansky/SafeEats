@@ -8,7 +8,6 @@ import {
 } from "react-native";
 import React, { Component, useState } from "react";
 import { useNavigation } from '@react-navigation/native';
-import RestaurantScreen from "../restaurant/RestaurantScreen";
 
 
 export default function Partner(props) {

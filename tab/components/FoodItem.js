@@ -1,10 +1,14 @@
 import { TextInput, Text, View, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native';
+import menu from "../../backend/chmenus.json";
 
 
 export default function FoodItem(props) {
-    
+    let url = require("../../img/partner/chicken.jpeg");
+    if (menu[props.restaurant][props.name][0]['image'] != undefined) {
+        url = { uri: menu[props.restaurant][props.name][0]['image']}
+    }
     return (<View style={styles.container}>
-                <Image style={styles.image} source={ require("../../img/partner/chicken.jpeg") } />
+                <Image style={styles.image} source={ url } />
                 <Text style={styles.bigText}>{props.name}</Text>
                 <Text style={styles.bigText}>${props.price}</Text>
                 <Text style={styles.smallText}>{props.details}</Text>
@@ -13,8 +17,8 @@ export default function FoodItem(props) {
 
 const styles = StyleSheet.create({
     image: {
-        maxWidth: 150,
-        maxHeight: 150,
+        width: 150,
+        height: 150,
         resizeMode: "cover",
         borderRadius: 40,
     },  

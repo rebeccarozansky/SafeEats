@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import menus from "./chmenus.json";
+import menus from "../../backend/chmenus.json";
 import { getUserInfo } from "../../config/getUserInfo";
 import {
   TextInput,
@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import FoodItem from "../restaurant/FoodItem";
+import FoodItem from "./FoodItem";
 import rest_info from "../../backend/restaurant_info.json";
 
 // Filters out items based on allergies given by user.
@@ -53,7 +53,7 @@ function safefilter(restrictions, item) {
 export default function MenuScreen(props) {
 
   const [restrictions, setRestrictions] = useState([]);
-  const rest_image: string = props.route.params.url.uri;
+  const rest_image = props.route.params.url.uri;
 
   const getRestrictions = async () => {
     let temp = await getUserInfo();
@@ -87,7 +87,7 @@ export default function MenuScreen(props) {
   
   return (
     <View style={styles.container}>
-      <Image style={styles.image} style={{width: "100%", height: 300}} source={{uri: rest_image}} />
+      <Image style={[styles.image, {width: "100%", height: 300}]} source={{uri: rest_image}} />
       <Text style={styles.restaurantName}>{props.route.params.title}</Text>
       <View style={styles.infoContainer}>
         <Text style={styles.priceText}>{rest_info[props.route.params.title]['price']}</Text>
@@ -106,6 +106,7 @@ export default function MenuScreen(props) {
                     url={{
                       uri: "https://user-images.githubusercontent.com/32803510/230947533-1489be79-18c0-4d7d-a8cc-069ff84f98ba.png"
                     }}
+                    restaurant={props.route.params.title}
                     description={Description}
                     name={item}
                     price={Price}
@@ -126,6 +127,7 @@ export default function MenuScreen(props) {
                     url={{
                       uri: "https://user-images.githubusercontent.com/32803510/230947533-1489be79-18c0-4d7d-a8cc-069ff84f98ba.png",
                     }}
+                    restaurant={props.route.params.title}
                     description={Description}
                     name={item}
                     price={Price}

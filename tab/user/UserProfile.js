@@ -177,10 +177,12 @@ const styles = StyleSheet.create({
         height: 40,
         alignItems: "center",
         alignSelf: "flex-end",
-        marginRight: "5%",
-        marginTop: "2.5%",
+        
         borderRadius: "50%", 
-        justifyContent: "center"
+        justifyContent: "center",
+        position: "absolute",
+        bottom: 7.5,
+        right: 20
     }, 
   });
   
