@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import menus from "./chmenus.json";
-import MenuItem from "./MenuItem";
 import { getUserInfo } from "../../config/getUserInfo";
 import {
   TextInput,
@@ -54,8 +53,8 @@ function safefilter(restrictions, item) {
 export default function MenuScreen(props) {
 
   const [restrictions, setRestrictions] = useState([]);
-  console.log('props')
-  console.log(props.route.params)
+  const rest_image: string = props.route.params.url.uri;
+
   const getRestrictions = async () => {
     let temp = await getUserInfo();
     setRestrictions(temp);
@@ -73,7 +72,7 @@ export default function MenuScreen(props) {
     let par = props.route.params;
     parn = par.name;
     let oof = "Top Of The Hill Restaurant & Brewery";
-    console.log(parn);
+    
     if (menus.hasOwnProperty(parn)) {
       menu = menus[parn];
       let menukeys = menu.keys;
@@ -85,10 +84,10 @@ export default function MenuScreen(props) {
       }
     }
   }
-  console.log(props.route.params['url'])
+  
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={props.route.params['url']} />
+      <Image style={styles.image} style={{width: "100%", height: 300}} source={{uri: rest_image}} />
       <Text style={styles.restaurantName}>{props.route.params.title}</Text>
       <View style={styles.infoContainer}>
         <Text style={styles.priceText}>{rest_info[props.route.params.title]['price']}</Text>
@@ -141,41 +140,10 @@ export default function MenuScreen(props) {
     </View>
   );
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{parn}</Text>
-
-      <Text> Safe Items</Text>
-      {/*Displays the Safe Items*/}
-
-      <ScrollView horizontal={true}>
-        {Object.keys(safefoods).map((item) => {
-          return safefoods[item].map(({ Description, Price }) => {
-            return (
-              <MenuItem name={item} description={Description} price={Price} />
-            );
-          });
-        })}
-      </ScrollView>
-
-      {/*Displays every item*/}
-      <ScrollView>
-        {Object.keys(menu).map((item) => {
-          return menu[item].map(({ Description, Price }) => {
-            return (
-              <MenuItem name={item} description={Description} price={Price} />
-            );
-          });
-        })}
-      </ScrollView>
-    </View>
-  );
 }
 
 const styles = StyleSheet.create({
   image: {
-      width: "100%",
-      maxHeight: "40%",
       resizeMode: "contain",
       top: 0
   },  
