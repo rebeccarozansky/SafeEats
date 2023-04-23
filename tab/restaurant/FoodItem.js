@@ -2,10 +2,12 @@ import { TextInput, Text, View, StyleSheet, Image, TouchableOpacity, ScrollView}
 
 
 export default function FoodItem(props) {
+    
     return (<View style={styles.container}>
                 <Image style={styles.image} source={ require("../../img/partner/chicken.jpeg") } />
-                <Text style={styles.priceText}>{props.name}</Text>
-                <Text style={styles.priceText}>${props.price}</Text>
+                <Text style={styles.bigText}>{props.name}</Text>
+                <Text style={styles.bigText}>${props.price}</Text>
+                <Text style={styles.smallText}>{props.details}</Text>
             </View>);
 }
 
@@ -38,9 +40,13 @@ const styles = StyleSheet.create({
       width: "100%",
       marginLeft: 20
     },
-    priceText: {
+    bigText: {
         color: "#010F07",
         fontSize: 18,
+    },
+    smallText: {
+        color: "#010F07",
+        fontSize: 12,
     },
     spacerText: {
         color: "#868686",

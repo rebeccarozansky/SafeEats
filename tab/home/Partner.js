@@ -19,6 +19,9 @@ export default function Partner(props) {
         onPress={() => {
           navigation.navigate("MenuScreen", {
             name: props.title,
+            url: props.url,
+            title: props.title,
+            address: props.address,
           });
         }}
       >

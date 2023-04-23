@@ -1,0 +1,18 @@
+{
+  "Top Of The Hill Restaurant & Brewery": {
+    "price": "$$",
+    "cuisine": "American"
+  },
+  "Sup Dogs": {
+    "price": "$",
+    "cuisine": "American"
+  },
+  "McDonald's": {
+    "price": "$",
+    "cuisine": "Fast Food"
+  },
+  "Chick-fil-A": {
+    "price": "$",
+    "cuisine": "Fast Food"
+  }
+}

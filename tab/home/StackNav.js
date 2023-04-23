@@ -23,7 +23,7 @@ export default function StackNav(){
               name="MenuScreen" 
               component={MenuScreen} 
               navigation={Stack}
-              options={{ headerShown: true, headerTintColor: 'red' }}
+              options={{ headerShown: true, headerTintColor: 'red', headerTitle:"" }}
             />
         </Stack.Navigator>);
   
