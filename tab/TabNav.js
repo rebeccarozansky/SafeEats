@@ -3,12 +3,12 @@ import React, {Component, useState} from "react";
 import { color } from '@rneui/themed/dist/config';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import UserProfile from './user/UserProfile';
-import HomeScreen from './HomeScreen';
+import HomeScreen from './home/HomeScreen';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MenuScreen from './components/MenuScreen';
-import StackNav from './StackNav';
+import StackNav from './home/StackNav';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,10 +20,11 @@ const Stack = createNativeStackNavigator();
 export default function TabNav() {
   
     return (
-        <Tab.Navigator
-        screenOptions={{
-          headerShown: false
-        }}>
+      <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: "#F00"
+      }}>
           <Tab.Screen 
             name="Home" 
             component={StackNav}

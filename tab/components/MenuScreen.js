@@ -35,7 +35,6 @@ function safefilter(restrictions,item) {
 }
 
 export default function MenuScreen({route}) {
-
   const [restrictions,setRestrictions] = useState([]);
 
 const getRestrictions = async() => {
@@ -56,7 +55,7 @@ useEffect(() => {
     let par = route.params
     parn = par.name
     let oof = "Top Of The Hill Restaurant & Brewery"
-
+    console.log(parn)
     if(menus.hasOwnProperty(parn)){
       menu = menus[parn]
       let menukeys = menu.keys    
