@@ -14,7 +14,8 @@ import Partner from "./Partner";
 
 export default function HomePartners(props) {
   let restaurants = props.restaurants;
-  
+  console.log("home partners")
+  console.log(restaurants)
   const img_urls = {
     mc: require("../../img/partner/BG1.png"),
     ch: require("../../img/partner/BG2.png"),

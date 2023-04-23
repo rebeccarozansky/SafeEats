@@ -12,7 +12,7 @@ import {
   ScrollView,
 } from "react-native";
 import FoodItem from "../restaurant/FoodItem";
-import rest_info from "../../backend/restaurant_info.json"
+import rest_info from "../../backend/restaurant_info.json";
 
 // Filters out items based on allergies given by user.
 // Vegetarian and Vegan must be handled differently.
@@ -55,7 +55,7 @@ export default function MenuScreen(props) {
 
   const [restrictions, setRestrictions] = useState([]);
   console.log('props')
-  console.log(rest_info[props.route.params.title]['cuisine'])
+  console.log(props.route.params)
   const getRestrictions = async () => {
     let temp = await getUserInfo();
     setRestrictions(temp);
@@ -85,10 +85,10 @@ export default function MenuScreen(props) {
       }
     }
   }
-  
+  console.log(props.route.params['url'])
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require("../../img/partner/BG1.png")} />
+      <Image style={styles.image} source={props.route.params['url']} />
       <Text style={styles.restaurantName}>{props.route.params.title}</Text>
       <View style={styles.infoContainer}>
         <Text style={styles.priceText}>{rest_info[props.route.params.title]['price']}</Text>

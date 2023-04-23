@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { getUserLocation } from '../../config/location';
 import { AntDesign } from '@expo/vector-icons';
 import HomePartners from './HomePartners';
+import rest_info from "../../backend/restaurant_info.json";
 
 
 export default function HomeScreen(props) {
@@ -49,10 +50,14 @@ export default function HomeScreen(props) {
   }, []);
   let parsedRestaurants = [];
   for (let i = 0; i < restaurants.length; i++) {
+    let link = "";
+    if ( rest_info[restaurants[i]['name']] != undefined) {
+      link =  rest_info[restaurants[i]['name']]['image'];
+    }
     parsedRestaurants.push({
       name: restaurants[i]['name'],
       address: restaurants[i]['Address']['addressLine'],
-      url: {uri: "https://images.squarespace-cdn.com/content/v1/5988cb683a04113a5f6b3aba/1502289194218-7BJSOZJIZV0WR0PTMCC9/image-asset.jpeg"}
+      url: {uri: link}
     })
   }
   const [currentComponent, setCurrentComponent] = useState(0);
