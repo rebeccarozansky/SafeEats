@@ -32,10 +32,8 @@ export default function PersonalInfo(props) {
 
     <View style={styles.personalInfoView}>
         <Text style={styles.title}>Personal Information</Text>
-        <View style={styles.personalInfoData}>
+        <View style={isEdittable ? styles.personalInfoDataEditting: styles.personalInfoData}>
             <View>
-                {console.log(data)}
-                {console.log("bagel")}
                 <Text style={styles.label}>Name</Text>
                 <Text style={styles.label}>Email</Text>
                 <Text style={styles.label}>Phone Number</Text>
@@ -87,9 +85,10 @@ export default function PersonalInfo(props) {
 
 
 
+
 const styles = StyleSheet.create({
     personalInfoView: {
-        width: "100%",
+        width: "100%"
     }, 
     personalInfoData: {
         marginTop: 5,
@@ -98,6 +97,17 @@ const styles = StyleSheet.create({
         flexDirection: "row",
 
         borderColor: "#3B3B3B33",
+        borderWidth: 2,
+        borderRadius: 10,
+    },
+    personalInfoDataEditting: {
+        marginTop: 5,
+        marginLeft: "5%",
+        width: "90%",
+        flexDirection: "row",
+
+        borderColor: "#3B3B3B33",
+        backgroundColor: "#3B3B3B33",
         borderWidth: 2,
         borderRadius: 10,
     },
