@@ -1,3 +1,5 @@
+// React Native component that creates a Stack Navigator with two screens: HomeScreen and MenuScreen.
+
 import { TextInput, Text, View, StyleSheet, Button, TouchableOpacity, Image } from 'react-native';
 import React, {Component, useState} from "react";
 import { color } from '@rneui/themed/dist/config';

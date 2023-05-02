@@ -1,3 +1,6 @@
+// React Native functional component called DropDown. 
+// The component is designed to render a button that toggles the visibility of a dropdown content when clicked.
+
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 

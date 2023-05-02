@@ -1,3 +1,7 @@
+// React Native functional component called UserProfile. 
+// The component is responsible for rendering the user profile screen of the mobile app, 
+// including the user's personal information and allergies.
+
 import { TextInput, Text, View, StyleSheet, Button, TouchableOpacity, Image } from 'react-native';
 import React, {Component, useState,useEffect} from "react";
 import { color } from '@rneui/themed/dist/config';

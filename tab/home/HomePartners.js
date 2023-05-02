@@ -1,3 +1,7 @@
+// React Native functional component named HomePartners that displays a horizontal scroll view of partners. 
+// It imports several components from React Native, such as ScrollView, Text, View, StyleSheet, TouchableOpacity, and Image, 
+// as well as an icon from the @expo/vector-icons package.
+
 import {
   TextInput,
   Text,

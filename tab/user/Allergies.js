@@ -1,3 +1,11 @@
+// component called Allergies that renders a list of allergy items with checkboxes and icons. 
+// The list of allergies is defined in an array, along with corresponding icon images. 
+// The Allergies component takes in a props object, which includes a counter for whether the 
+// component is in an "editable" state and an array of boolean values representing whether each 
+// allergy item is checked or not. If the component is in an editable state, the checkboxes 
+// are clickable, and changes to the checkbox states are passed back to the parent component 
+// through a callback function setAllergyBool.
+
 import {
   TextInput,
   Text,

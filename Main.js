@@ -1,3 +1,7 @@
+// React Native component that renders a user interface for a login and account creation page. 
+// It has two child components, CreateAccount and LogIn, which are switched between by using useState() 
+// hooks to keep track of the currently active component and updating the state when a user selects one of the buttons.
+
 import { StatusBar } from 'expo-status-bar';
 import { Image, View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import React, {Component, useState} from "react";
