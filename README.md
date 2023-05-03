@@ -42,6 +42,7 @@ Required Installations prior to running app:
 - Android and iOS devices:
   - Download Expo Go on the Google Play Store or Apple Store
 - Launching the app:
+  - Navigate to https://tarheels.live/comp523teamb2023/set-up-instructions/ and scroll down to 'Launching the App' and follow the first two steps
   - Go to the terminal and type “npm run start”
   - From there you can scan the QR code to run the app on your phone.
   - You can also press i to run the app on the iOS simulator
