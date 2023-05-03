@@ -1,3 +1,7 @@
+// React Native component that renders a user interface for a sign-up page. 
+// It allows users to enter their full name, email, and password to create an account. 
+// This component utilizes Firebase to create a new user and store their information.
+
 import { StatusBar } from 'expo-status-bar';
 import { TextInput, Text, View, StyleSheet, Button, TouchableOpacity, Image } from 'react-native';
 import React, {Component, useState} from "react";

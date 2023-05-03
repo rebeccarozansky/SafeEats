@@ -1,3 +1,6 @@
+// React component called RestaurantCard, which represents a card displaying information about a restaurant. 
+// It receives two props, key and name.
+
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';

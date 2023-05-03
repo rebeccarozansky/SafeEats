@@ -1,3 +1,6 @@
+// React Native functional component that renders the home screen of a restaurant app. 
+// It displays a banner image, a search bar, a list of featured partners, and a list of restaurants near the user's location.
+
 import { TextInput, Text, View, StyleSheet, Button, TouchableOpacity, Image } from 'react-native';
 import React, {Component, useState} from "react";
 import { color } from '@rneui/themed/dist/config';

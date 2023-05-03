@@ -1,3 +1,6 @@
+// React Native screen component for a restaurant menu in the app. 
+// The component uses the useState and useEffect hooks to manage state and perform side effects.
+
 import React, { useState, useEffect } from "react";
 import menus from "../../backend/chmenus.json";
 import { getUserInfo } from "../../config/getUserInfo";

@@ -1,3 +1,6 @@
+// React Native functional component called FoodItem. 
+// The component is responsible for rendering a single item from a menu, including the item's name, price, image, and details.
+
 import { TextInput, Text, View, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native';
 import menu from "../../backend/chmenus.json";
 

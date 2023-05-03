@@ -1,3 +1,6 @@
+// React Native component that creates a bottom tab navigator for the app. 
+// The app includes two screens, "Home" and "User Profile", each represented by a tab at the bottom of the screen.
+
 import {
   TextInput,
   Text,

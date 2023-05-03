@@ -1,3 +1,6 @@
+// React component called "Partner", which is used to display information about a restaurant partner.
+// It includes props like: name, url, title, and address of the restaurant.
+
 import {
   TextInput,
   Text,

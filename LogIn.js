@@ -1,3 +1,7 @@
+// React Native component that renders a user interface for a login page. 
+// It allows users to enter their email and password to sign in to an application. 
+// This component utilizes Firebase for user authentication.
+
 import { StatusBar } from 'expo-status-bar';
 import { Image, View, StyleSheet, TouchableOpacity, Text, TextInput } from 'react-native';
 import React, {Component,useState} from "react";

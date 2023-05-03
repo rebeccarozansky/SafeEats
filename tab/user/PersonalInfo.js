@@ -1,3 +1,8 @@
+// React Native component that renders a form for displaying and editing personal information. 
+// It takes in personalData as a prop, which is an array of strings containing personal information 
+// data such as name, email, phone number, gender, birthday, and address. 
+// It also takes in iconButtonCounter as a prop which is used to determine if the form should be editable.
+
 import { TextInput, Text, View, StyleSheet, Button, TouchableOpacity, Image } from 'react-native';
 import React, {Component, useEffect, useState} from "react";
 import { color } from '@rneui/themed/dist/config';

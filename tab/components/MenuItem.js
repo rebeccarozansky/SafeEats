@@ -1,3 +1,5 @@
+// React component called MenuItem, which takes three props: name, description, and price.
+
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import DropDown from './DropDown';
